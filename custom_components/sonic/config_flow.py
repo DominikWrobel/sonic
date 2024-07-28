@@ -31,10 +31,10 @@ async def validate_input(hass: core.HomeAssistant, data):
     # Use the verified session to discover the first sonic device's name
     await api.sonic.async_get_all_sonic_details()
     await api.property.async_get_all_property_details()
-#    first_sonic_id = sonic_data["data"][0]["id"]
-#    sonic_info = await api.sonic.async_get_sonic_details(first_sonic_id)
-#    return {"title": f'Sonic Device {sonic_info["name"]}'}
-#    return {"title": sonic_info["name"]}
+    first_sonic_id = sonic_data["data"][0]["id"]
+    sonic_info = await api.sonic.async_get_sonic_details(first_sonic_id)
+    return {"title": f'Sonic Device {sonic_info["name"]}'}
+    return {"title": sonic_info["name"]}
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
